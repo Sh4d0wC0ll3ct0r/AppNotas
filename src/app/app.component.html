@@ -1,7 +1,7 @@
 <div class="col-md-6">
     <h2>Listado de Notas</h2>
     <ul class="list-group">
-        <li class="list-group-item" *ngFor="let n of my_notes">{{n.id}}. {{n.title}}</li>
+        <li class="list-group-item" (click)="viewNote(n)" *ngFor="let n of my_notes">{{n.id}}. {{n.title}}</li>
     </ul>
     <a class="btn btn-primary btn-block" (click)="addNote()">Nueva Nota</a>
 </div>

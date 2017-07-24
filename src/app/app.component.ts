@@ -14,7 +14,13 @@ export class AppComponent {
     {id:4, title: 'Note 4', description: 'Description for note 4'},
   ];
   note = {id:null, title:null, description:null};
+  editing = false;
   show_form = false;
+  viewNote(note){
+    this.editing = true;
+    this.note = note;
+    this.show_form = true;
+  }
   addNote(){
     this.show_form = true;
   }
@@ -22,9 +28,20 @@ export class AppComponent {
     this.show_form = false;
   }
   createNote(){
+    if(this.editing){
+       var me = this;
+      this.my_notes.forEach(function(el, i){
+          if(el.id === me.note.id){
+            me.my_notes[i] = me.note;
+          }
+      });
+      me.show_form = false;
+    }
+    else{
     this.note.id = Date.now();
     this.my_notes.push(this.note);
     this.show_form = false;
     this.note = {id:null, title:null, description:null};
+    }
   }
 }
