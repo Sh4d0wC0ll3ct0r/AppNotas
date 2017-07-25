@@ -26,10 +26,11 @@ export class AppComponent {
   }
   cancel(){
     this.show_form = false;
+   // this.note = {id:null, title:null, description:null};
   }
   createNote(){
     if(this.editing){
-       var me = this;
+      var me = this;
       this.my_notes.forEach(function(el, i){
           if(el.id === me.note.id){
             me.my_notes[i] = me.note;
@@ -43,5 +44,16 @@ export class AppComponent {
     this.show_form = false;
     this.note = {id:null, title:null, description:null};
     }
+
+  }
+  delete(){
+    var me = this;
+    this.my_notes.forEach(function(el, i){
+      if(el == me.note){
+        me.my_notes.splice(i, 1);
+      }
+    });
+    this.show_form = false;
+    this.note = {id:null, title:null, description:null};
   }
 }

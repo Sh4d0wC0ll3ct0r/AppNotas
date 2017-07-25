@@ -12,10 +12,13 @@
     <textarea class="form-control" placeholder="Cuerpo de la nota" [(ngModel)]="note.description"></textarea>
     <hr />
     <div class="row">
-        <div class="col-md-6">
+         <div class="col-md-4">
+            <a class="btn btn-danger btn-block" *ngIf="editing" (click)="delete()">Eliminar</a>
+        </div>
+        <div class="col-md-4">
             <a class="btn btn-default btn-block" (click)="cancel()">Cancelar</a>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a class="btn btn-primary btn-block" (click)="createNote()">Guardar Nota</a>
         </div>
     </div>
